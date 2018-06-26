@@ -1,0 +1,6 @@
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\QuickSort\bin\Debug\QuickSort.dll
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\QuickSort\bin\Debug\QuickSort.pdb
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\QuickSort\obj\Debug\QuickSort.csproj.CoreCompileInputs.cache
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\QuickSort\obj\Debug\QuickSort.dll
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\QuickSort\obj\Debug\QuickSort.pdb
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\QuickSort\obj\Debug\QuickSort.csprojAssemblyReference.cache

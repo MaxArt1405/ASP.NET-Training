@@ -1,0 +1,6 @@
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\MergeSort\bin\Debug\MergeSort.dll
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\MergeSort\bin\Debug\MergeSort.pdb
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\MergeSort\obj\Debug\MergeSort.csprojAssemblyReference.cache
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\MergeSort\obj\Debug\MergeSort.csproj.CoreCompileInputs.cache
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\MergeSort\obj\Debug\MergeSort.dll
+D:\ASP.NET Training\NET.S.2018.Kondratovich.01\MergeSort\obj\Debug\MergeSort.pdb
