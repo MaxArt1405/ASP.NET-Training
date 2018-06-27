@@ -1,6 +1,0 @@
-C:\Users\Lenovo\source\repos\ArrayExtensions\ArrayExtensions\bin\Debug\ArrayExtensions.dll
-C:\Users\Lenovo\source\repos\ArrayExtensions\ArrayExtensions\bin\Debug\ArrayExtensions.pdb
-C:\Users\Lenovo\source\repos\ArrayExtensions\ArrayExtensions\obj\Debug\ArrayExtensions.csproj.CoreCompileInputs.cache
-C:\Users\Lenovo\source\repos\ArrayExtensions\ArrayExtensions\obj\Debug\ArrayExtensions.dll
-C:\Users\Lenovo\source\repos\ArrayExtensions\ArrayExtensions\obj\Debug\ArrayExtensions.pdb
-C:\Users\Lenovo\source\repos\ArrayExtensions\ArrayExtensions\obj\Debug\ArrayExtensions.csprojAssemblyReference.cache
