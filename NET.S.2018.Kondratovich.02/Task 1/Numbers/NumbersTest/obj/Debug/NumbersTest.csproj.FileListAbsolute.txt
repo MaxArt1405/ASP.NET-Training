@@ -1,0 +1,16 @@
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\NumbersTest.dll
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\NumbersTest.pdb
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\Numbers.dll
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\Numbers.pdb
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\obj\Debug\NumbersTest.csprojAssemblyReference.cache
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\obj\Debug\NumbersTest.csproj.CoreCompileInputs.cache
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\obj\Debug\NumbersTest.csproj.CopyComplete
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\obj\Debug\NumbersTest.dll
+c:\Users\Lenovo\source\repos\Numbers\NumbersTest\obj\Debug\NumbersTest.pdb
