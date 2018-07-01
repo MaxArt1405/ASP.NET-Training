@@ -57,7 +57,7 @@ namespace NewtonsNthRoot
             {
                 throw new ArgumentException($"It is impossible to extract {nameof(root)} from a negative {nameof(number)}");
             }
-            if (eps < 0)
+            if (eps <= 0 || eps >= 1)
             {
                 throw new ArgumentException($"The accurancy {nameof(eps)} can not be less than 0");
             }
