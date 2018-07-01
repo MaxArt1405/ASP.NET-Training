@@ -16,12 +16,12 @@ namespace NewtonsNthRoot
             Valid(number, root, eps);
 
             double prev = number / root;
-            double next = (1.0 / root) * ((root - 1) * prev + number / Math.Pow(prev, root - 1));
+            double next = (1.0 / root) * ((root - 1) * prev + number / Pow(prev, root - 1));
 
             while (Math.Abs(next - prev) > eps)
             {
                 prev = next;
-                next = (1.0 / root) * ((root - 1) * prev + number / Math.Pow(prev, root - 1));
+                next = (1.0 / root) * ((root - 1) * prev + number / Pow(prev, root - 1));
             }
 
             return next;
