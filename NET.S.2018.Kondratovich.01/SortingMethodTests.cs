@@ -67,5 +67,13 @@ namespace UnitTestForMergeAndQuickSorts
             Sortings.QuickSorting(actual);
             CollectionAssert.AreEqual(actual, expected);
         }
+        [TestMethod]
+        public void Sorting_SipleArray_Success()
+        {
+            int[] actual = { 1 };
+            int[] expected = { 1 };
+            Sortings.QuickSorting(actual);
+            CollectionAssert.AreEqual(actual, expected);
+        }
     }
 }

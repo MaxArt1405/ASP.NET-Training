@@ -17,6 +17,14 @@ namespace SortingMethods
             {
                 throw new ArgumentNullException($"The value of parameter{nameof(array)} can't be null");
             }
+            if(array.Length == 0)
+            {
+                throw new ArgumentException($"The length of {nameof(array)} can not be zero");
+            }
+            if (array.Length == 1)
+            {
+                returnSipleArray(array);
+            }
             Quicksort(array, 0, array.Length - 1);
         }
         /// <summary>
@@ -28,6 +36,14 @@ namespace SortingMethods
             if (array == null)
             {
                 throw new ArgumentNullException($"The value of parameter{nameof(array)} can't be null");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException($"The length of {nameof(array)} can not be zero");
+            }
+            if (array.Length == 1)
+            {
+                returnSipleArray(array);
             }
             Mergesort(array, 0, array.Length - 1);
         }
@@ -138,6 +154,10 @@ namespace SortingMethods
             var tmp = a;
             a = b;
             b = tmp;
+        }
+        private static int[] returnSipleArray(int[] array)
+        {
+            return array;
         }
     }
 }
