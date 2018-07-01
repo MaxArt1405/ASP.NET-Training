@@ -16,30 +16,15 @@ namespace NewtonsNthRoot
             Valid(number, root, eps);
 
             double prev = number / root;
-            double next = (1.0 / root) * ((root - 1) * prev + number / Pow(prev, root - 1));
+            double next = (1.0 / root) * ((root - 1) * prev + number / Math.Pow(prev, root - 1));
 
             while (Math.Abs(next - prev) > eps)
             {
                 prev = next;
-                next = (1.0 / root) * ((root - 1) * prev + number / Pow(prev, root - 1));
+                next = (1.0 / root) * ((root - 1) * prev + number / Math.Pow(prev, root - 1));
             }
 
             return next;
-        }
-        /// <summary>
-        /// Method for rizing in a power
-        /// </summary>
-        /// <param name="a">number</param>
-        /// <param name="pow">power</param>
-        /// <returns></returns>
-        private static double Pow(double a, int pow)
-        {
-            double result = 1;
-            for (int i = 0; i < pow; i++)
-            {
-                result *= a;
-            }
-            return result;
         }
         /// <summary>
         /// Method for validating input parameters
