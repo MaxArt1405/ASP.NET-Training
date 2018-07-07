@@ -37,6 +37,8 @@ namespace Numbers
         /// <summary>
         /// This method checks positions for start and end position ofelements
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">Throws when the start or end position is incorrect.</exception>    
+        /// <exception cref="ArgumentException">Throws when the end position is less than start position.</exception>
         /// <param name="startPosition">Start position to insert bits</param>
         /// <param name="endPosition">End position to insert bits</param>
         private static void CheckPosition(int startPosition, int endPosition)
