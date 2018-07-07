@@ -23,7 +23,7 @@ namespace SortingMethods
             }
             if (array.Length == 1)
             {
-                returnSipleArray(array);
+                return SipleArray(array);
             }
             Quicksort(array, 0, array.Length - 1);
         }
@@ -43,7 +43,7 @@ namespace SortingMethods
             }
             if (array.Length == 1)
             {
-                returnSipleArray(array);
+                sipleArray(array);
             }
             Mergesort(array, 0, array.Length - 1);
         }
@@ -155,7 +155,7 @@ namespace SortingMethods
             a = b;
             b = tmp;
         }
-        private static int[] returnSipleArray(int[] array)
+        private static int[] sipleArray(int[] array)
         {
             return array;
         }
