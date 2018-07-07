@@ -10,6 +10,8 @@ namespace SortingMethods
         /// <summary>
         /// Quick sort for input array
         /// </summary>
+        /// <exception cref="ArgumentNullException">Throws when input array is null.</exception>    
+        /// <exception cref="ArgumentException">Throws when the length is zero .</exception>
         /// <param name="array">Non-sorted array</param>
         public static void QuickSorting(int[] array)
         {
