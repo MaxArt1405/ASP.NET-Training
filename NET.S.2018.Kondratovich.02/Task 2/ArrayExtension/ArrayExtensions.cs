@@ -30,6 +30,8 @@ namespace ArrayExtensions
         /// <summary>
         /// Validation method
         /// </summary>
+        /// <exception cref="ArgumentNullException">Throws when value of source or predicate is null.</exception>    
+        /// <exception cref="ArgumentException">Throws when the length of source is zero.</exception>
         /// <typeparam name="T"></typeparam>
         /// <param name="source">Source array</param>
         /// <param name="predicate">Filter method criteria</param>
@@ -45,7 +47,7 @@ namespace ArrayExtensions
             }
             if (source.Length == 0)
             {
-                throw new ArgumentException($"The value of parametr {nameof(source)} can`t ne null");
+                throw new ArgumentException($"The length of parametr {nameof(source)} can`t ne zero");
             }
         }
     }
