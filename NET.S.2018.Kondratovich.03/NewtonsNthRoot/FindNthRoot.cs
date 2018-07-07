@@ -28,7 +28,10 @@ namespace NewtonsNthRoot
         }
         /// <summary>
         /// Method for validating input parameters
-        /// </summary>
+        /// </summary>   
+        /// <exception cref="ArgumentException">Throws when numer is negative for even roots.</exception>
+        /// <exception cref="ArgumentException">Throws when root is lessthan 1.</exception>
+        /// <exception cref="ArgumentException">Throws when eps is less than 0 or greater than 1</exception>
         /// <param name="number">Real input number</param>
         /// <param name="root">root</param>
         /// <param name="eps">accurancy</param>
