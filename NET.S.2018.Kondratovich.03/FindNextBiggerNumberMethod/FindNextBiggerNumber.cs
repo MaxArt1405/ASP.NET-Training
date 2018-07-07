@@ -121,7 +121,8 @@ namespace FindNextBiggerNumberMethod
         }
         /// <summary>
         /// Checking method for input int number
-        /// </summary>
+        /// </summary>    
+        /// <exception cref="ArgumentException">Throws when number less or equal zero.</exception>
         /// <param name="number">Int number</param>
         private static void Valid(int number)
         {
@@ -131,7 +132,7 @@ namespace FindNextBiggerNumberMethod
             }
             if (number == 0)
             {
-                throw new ArgumentNullException($"The number {nameof(number)} can not be zero");
+                throw new ArgumentException($"The number {nameof(number)} can not be zero");
             }
         }
     }
