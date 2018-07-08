@@ -25,7 +25,7 @@ namespace SortingMethods
             }
             if (array.Length == 1)
             {
-                return SipleArray(array);
+                return array;
             }
             Quicksort(array, 0, array.Length - 1);
         }
@@ -158,10 +158,6 @@ namespace SortingMethods
             var tmp = a;
             a = b;
             b = tmp;
-        }
-        private static int[] sipleArray(int[] array)
-        {
-            return array;
         }
     }
 }
