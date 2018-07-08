@@ -36,6 +36,40 @@ namespace MethodsForFindingGCD
             return result;
         }
         /// <summary>
+        /// Computing the greatest common divisor with time by Euclid's algorithm.
+        /// </summary>
+        /// <param name="time">The out parameter to compute lead time.</param>
+        /// <param name="firstNumber">The first number.</param>
+        /// <param name="secondNumber">The second number.</param>
+        /// <returns></returns>
+        public static int EuclideanMethod(out TimeSpan time, int firstNumber, int secondNumber)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            int result = EuclideanMethod(firstNumber, secondNumber);
+            stopwatch.Stop();
+            time = stopwatch.Elapsed;
+
+            return result;
+        }
+        /// <summary>
+        /// Computing the greatest common divisor with time by Euclid's algorithm with any count of parameters.
+        /// </summary>
+        /// <param name="time">The out parameter to compute lead time.</param>
+        /// <param name="firstNumber">The first number.</param>
+        /// <param name="secondNumber">The second number.</param>
+        /// <returns></returns>
+        public static int EuclideanMethod(out TimeSpan time, int firstNumber, int secondNumber, params int[] numbers)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            int result = EuclideanMethod(firstNumber, secondNumber, numbers);
+            stopwatch.Stop();
+            time = stopwatch.Elapsed;
+
+            return result;
+        }
+        /// <summary>
         /// Stein method for two parameters
         /// </summary>
         /// <param name="firstNumber">First number</param>
@@ -61,6 +95,40 @@ namespace MethodsForFindingGCD
             {
                 result = QuickSolutionForStein(result, numbers[i]);
             }
+            return result;
+        }
+        /// <summary>
+        /// Computing the greatest common divisor with time by Steins's algorithm.
+        /// </summary>
+        /// <param name="time">The out parameter to compute lead time.</param>
+        /// <param name="firstNumber">The first number.</param>
+        /// <param name="secondNumber">The second number.</param>
+        /// <returns></returns>
+        public static int SteinMethod(out TimeSpan time, int firstNumber, int secondNumber)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            int result = SteinMethod(firstNumber, secondNumber);
+            stopwatch.Stop();
+            time = stopwatch.Elapsed;
+
+            return result;
+        }
+        /// <summary>
+        /// Computing the greatest common divisor with time by Stein's algorithm with any count of parameters.
+        /// </summary>
+        /// <param name="time">The out parameter to compute lead time.</param>
+        /// <param name="firstNumber">The first number.</param>
+        /// <param name="secondNumber">The second number.</param>
+        /// <returns></returns>
+        public static int SteinMethod(out TimeSpan time, int firstNumber, int secondNumber, params int[] numbers)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            int result = SteinMethod(firstNumber, secondNumber, numbers);
+            stopwatch.Stop();
+            time = stopwatch.Elapsed;
+
             return result;
         }
         /// <summary>
