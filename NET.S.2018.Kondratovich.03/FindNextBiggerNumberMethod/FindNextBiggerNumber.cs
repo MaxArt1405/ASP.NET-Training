@@ -41,6 +41,16 @@ namespace FindNextBiggerNumberMethod
             }
             return DeconvertDigitArrayToInt(arrDigits);
         }
+        public static int FindingNextBiggerNumber(int number, out TimeSpan timer)
+        {
+            Stopwatch stopWatch = Stopwatch.StartNew();
+
+            stopWatch.Start();
+            int result = FindingNextBiggerNumber(number);
+            stopWatch.Stop();
+            timer = stopWatch.Elapsed;
+            return result;
+        }
         /// <summary>
         /// Converting int number to int[] array
         /// </summary>
