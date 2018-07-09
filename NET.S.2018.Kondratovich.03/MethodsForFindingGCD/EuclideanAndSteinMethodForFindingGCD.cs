@@ -18,6 +18,17 @@ namespace MethodsForFindingGCD
             return QuickSolutionForEuclid(firstNumber, secondNumber);
         }
         /// <summary>
+        /// Euclidean method for three parameters
+        /// </summary>
+        /// <param name="firstNumber">First number</param>
+        /// <param name="secondNumber">Second number</param>
+        /// /// <param name="thirdNumber">Third number</param>
+        /// <returns></returns>
+        public static int EuclideanMethod(int firstNumber, int secondNumber, int thirdNumber)
+        {
+            return QuickSolutionForEuclid(thirdNumber, QuickSolutionForEuclid(firstNumber, secondNumber));
+        }
+        /// <summary>
         /// Euclidean method for two and more parameters
         /// </summary>
         /// <param name="firstNumber">First number</param>
@@ -78,6 +89,17 @@ namespace MethodsForFindingGCD
         public static int SteinMethod(int firstNumber, int secondNumber)
         {
             return QuickSolutionForStein(firstNumber, secondNumber);
+        }
+        /// <summary>
+        /// Stein method for three parameters
+        /// </summary>
+        /// <param name="firstNumber">First number</param>
+        /// <param name="secondNumber">Second number</param>
+        /// /// <param name="thirdNumber">Third number</param>
+        /// <returns></returns>
+        public static int StetinMethod(int firstNumber, int secondNumber, int thirdNumber)
+        {
+            return QuickSolutionForStein(thirdNumber, QuickSolutionForStein(firstNumber, secondNumber));
         }
         /// <summary>
         /// Stein method for two and more parameters
