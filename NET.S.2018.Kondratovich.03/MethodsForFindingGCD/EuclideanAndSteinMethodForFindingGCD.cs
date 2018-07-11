@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Diagnostics;
 
 namespace MethodsForFindingGCD
 {
@@ -29,18 +30,16 @@ namespace MethodsForFindingGCD
             return QuickSolutionForEuclid(thirdNumber, QuickSolutionForEuclid(firstNumber, secondNumber));
         }
         /// <summary>
-        /// Euclidean method for two and more parameters
+        /// Euclidean method for any count parameters
         /// </summary>
-        /// <param name="firstNumber">First number</param>
-        /// <param name="secondNumber">Second number</param>
-        /// <param name="numbers">Array of numbers without first and second</param>
+        /// <param name="numbers">Array of numbers</param>
         /// <returns></returns>
-        public static int EuclideanMethod(int firstNumber, int secondNumber, params int[] numbers)
+        public static int EuclideanMethod(params int[] numbers)
         {
             Valid(numbers);
-            int result = QuickSolutionForEuclid(firstNumber, secondNumber);
-     
-            for(int i = 0; result != 1 && i < numbers.Length; i++)
+            int result = numbers[0];
+
+            for (int i = 0; result != 1 && i < numbers.Length; i++)
             {
                 result = QuickSolutionForEuclid(result, numbers[i]);
             }
@@ -67,14 +66,12 @@ namespace MethodsForFindingGCD
         /// Computing the greatest common divisor with time by Euclid's algorithm with any count of parameters.
         /// </summary>
         /// <param name="time">The out parameter to compute lead time.</param>
-        /// <param name="firstNumber">The first number.</param>
-        /// <param name="secondNumber">The second number.</param>
         /// <returns></returns>
-        public static int EuclideanMethod(out TimeSpan time, int firstNumber, int secondNumber, params int[] numbers)
+        public static int EuclideanMethod(out TimeSpan time, params int[] numbers)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            int result = EuclideanMethod(firstNumber, secondNumber, numbers);
+            int result = EuclideanMethod(numbers);
             stopwatch.Stop();
             time = stopwatch.Elapsed;
 
@@ -102,16 +99,14 @@ namespace MethodsForFindingGCD
             return QuickSolutionForStein(thirdNumber, QuickSolutionForStein(firstNumber, secondNumber));
         }
         /// <summary>
-        /// Stein method for two and more parameters
+        /// Stein method for any count parameters
         /// </summary>
-        /// <param name="firstNumber">First number</param>
-        /// <param name="secondNumber">Second number</param>
-        /// <param name="numbers">Array of numbers without first and second</param>
+        /// <param name="numbers">Array of numbers</param>
         /// <returns></returns>
-        public static int SteinMethod(int firstNumber, int secondNumber, params int[] numbers)
+        public static int SteinMethod(params int[] numbers)
         {
             Valid(numbers);
-            int result = QuickSolutionForStein(firstNumber, secondNumber);
+            int result = numbers[0];
 
             for (int i = 0; result != 1 && i < numbers.Length; i++)
             {
@@ -140,14 +135,12 @@ namespace MethodsForFindingGCD
         /// Computing the greatest common divisor with time by Stein's algorithm with any count of parameters.
         /// </summary>
         /// <param name="time">The out parameter to compute lead time.</param>
-        /// <param name="firstNumber">The first number.</param>
-        /// <param name="secondNumber">The second number.</param>
         /// <returns></returns>
-        public static int SteinMethod(out TimeSpan time, int firstNumber, int secondNumber, params int[] numbers)
+        public static int SteinMethod(out TimeSpan time, params int[] numbers)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            int result = SteinMethod(firstNumber, secondNumber, numbers);
+            int result = SteinMethod(numbers);
             stopwatch.Stop();
             time = stopwatch.Elapsed;
 
@@ -163,7 +156,7 @@ namespace MethodsForFindingGCD
         {
             firstNumber = Math.Abs(firstNumber);
             secondNumber = Math.Abs(secondNumber);
-            
+
             while (firstNumber != secondNumber)
             {
                 if (firstNumber > secondNumber)
@@ -225,10 +218,10 @@ namespace MethodsForFindingGCD
             {
                 return Math.Abs(secondNumber);
             }
-            if(secondNumber == 0)
+            if (secondNumber == 0)
             {
                 return Math.Abs(firstNumber);
-            }  
+            }
             return EuclideanMethodEvaluation(firstNumber, secondNumber);
         }
         /// <summary>
