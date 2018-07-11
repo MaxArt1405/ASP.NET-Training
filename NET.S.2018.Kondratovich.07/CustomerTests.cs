@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using NET.S._2018.Kondratovich._07;
+using NUnit.Framework;
+using System;
 
 namespace Customer.Tests
 {
@@ -7,6 +9,7 @@ namespace Customer.Tests
     {
         private readonly NET.S._2018.Kondratovich._07.Customer customer = 
             new NET.S._2018.Kondratovich._07.Customer("Jeffrey Richter", "+1 (425) 555-0100", 1000000);
+
         [TestCase("Full", ExpectedResult = "Customer record: Jeffrey Richter, +1 (425) 555-0100, 1000000")]
         [TestCase("Name", ExpectedResult = "Customer record: Jeffrey Richter")]
         [TestCase("Contact", ExpectedResult = "Customer record: +1 (425) 555-0100")]
@@ -17,6 +20,16 @@ namespace Customer.Tests
         public string CustomerReprezentations_SuccesfullTest(string format)
         {
             return customer.ToString(format);
+        }
+
+        [TestCase("Full+", null, ExpectedResult = "Customer record: Name: Jeffrey Richter, Revenue: 1000000, Phone: +1 (425) 555-0100")]
+        [TestCase("Name+", null, ExpectedResult = "Customer record name: Jeffrey Richter")]
+        [TestCase("Contact+", null, ExpectedResult = "Customer record contact phone: +1 (425) 555-0100")]
+        [TestCase("Revenue+", null, ExpectedResult = "Customer record revenue: 1000000")]
+         public string Custom_CustomerReprezentations_SuccesfullTest(string format, IFormatProvider formatProvider)
+        {
+            CustomersFormatter custom = new CustomersFormatter();
+            return custom.Format(format, customer, formatProvider);
         }
     }
 }
