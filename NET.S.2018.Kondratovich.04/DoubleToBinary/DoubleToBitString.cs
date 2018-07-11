@@ -1,174 +1,57 @@
-﻿using System;
+using System;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace DoubleToBits
 {
+    /// <summary>
+    /// Converts double into binary string
+    /// </summary>
     public static class DoubleToBitString
     {
-        private const int LengthDoubleOrder = 11;
-        private const int LengthDoubleMantissa = 52;
-        private const int RightOffsetDouble = 1023;
-        private const int LeftOffsetDouble = -1022;
-        private const int positiveBit = 1;
-        private const int negativeBit = 0;
-
+        private const int BitsInByte = 8;
+        private const int BitsInLong = BitsInByte * 8;
         /// <summary>
-        /// This method gives Bit reprezentation of double value
+        /// Converts double number into bit representation.
         /// </summary>
-        /// <param name="value">Input value</param>
-        /// <returns></returns>
-        public static string ToBitsString(this double value)
+        /// <param name="number">Double number to converting.</param>
+        /// <returns>String of bits.</returns>
+        public static string ConvertToString(this double number)
         {
-            int sign = GetSignBit(value);
-
-            if(sign == 1)
-            {
-                value = Math.Abs(value);
-            }
-
-            int order = GetOrder(value);
-            int[] orderBinary = IntToBinaryArray(order, LengthDoubleOrder);
-            int[] mantissaBinary = GetMantissaBinaryArray(GetMantissa(value, order));
-
-            return GetBinaryRepresentation(sign, orderBinary, mantissaBinary);
+            NumberUnion union = new NumberUnion(number);
+            return union.ToLong().Convertation();
         }
         /// <summary>
-        /// Calculating an order of a double value 
+        /// Makes string reprezentation
         /// </summary>
-        /// <param name="value">Input value</param>
+        /// <param name="union">Long number</param>
         /// <returns></returns>
-        private static int GetOrder(double value)
+        private static string Convertation(this long union)
         {
-            if (double.IsNaN(value))
+            string res = String.Empty;
+            StringBuilder result = new StringBuilder();
+
+            for (int i = 0; i < 64; i++)
             {
-                return (int)Math.Pow(2, LengthDoubleOrder) - 1;
+                result.Insert(0,((union & 1) == 1) ? "1" : "0");
+                union >>= 1;
             }
-
-            int order = 0;
-            double fraction = (value / Math.Pow(2, order)) - 1;
-
-            while ((fraction < 0) || (fraction >= 1))
-            {
-                if(fraction < 1.0)
-                {
-                    --order;
-                }
-                else
-                {
-                    ++order;
-                }
-                fraction = (value / Math.Pow(2, order)) - 1;
-            }
-
-            order += RightOffsetDouble;
-
-            if(order < 0)
-            {
-                order = 0;
-            }
-
-            return order;
+            return result.ToString();
         }
-        /// <summary>
-        /// Method for finding mantissa of double value, according to IEEE 754
-        /// </summary>
-        /// <param name="value">Input value</param>
-        /// <param name="order">Calculated order</param>
-        /// <returns></returns>
-        private static double GetMantissa(double value, int order)
+        [StructLayout(LayoutKind.Explicit)]
+        private struct NumberUnion
         {
-            if (double.IsNaN(value))
+            [FieldOffset(0)]
+            private readonly double DNumber;
+            [FieldOffset(0)]
+            private readonly long LNumber;
+
+            public NumberUnion(double value) : this()
             {
-                return Math.Pow(2, LengthDoubleMantissa);
+                DNumber = value;
             }
 
-            order -= RightOffsetDouble;
-            double mantissa = 0.0;
-
-            if (order <= -RightOffsetDouble)
-            {
-                mantissa = value / Math.Pow(2, LeftOffsetDouble);
-            }
-            else
-            {
-                mantissa = (value / Math.Pow(2, order)) - 1;
-            }
-
-            return mantissa;
-        }
-        /// <summary>
-        /// Convertation calculated mantissa into binary array
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        private static int[] GetMantissaBinaryArray(double value)
-        {
-            int[] result = new int[LengthDoubleMantissa];
-
-            for (int i = 0; i < result.Length; i++)
-            {
-                value *= 2;
-                if (value >= 1)
-                {
-                    result[i] = positiveBit;
-                    value -= 1;
-                }
-                else
-                {
-                    result[i] = negativeBit;
-                }
-            }
-            return result;
-        }
-        /// <summary>
-        /// Calculating a sign(bit reprezentation)
-        /// </summary>
-        /// <param name="value">Input value</param>
-        /// <returns></returns>
-        private static int GetSignBit(double value)
-        {
-            int bit = 0;
-            if (double.IsNegativeInfinity(1.0 / value) || value < 0.0)
-            {
-                bit = 1;
-            }
-            return bit;
-        }
-        /// <summary>
-        /// Calculating and binary array compilation according to IEEE 754
-        /// </summary>
-        /// <param name="value">Input value</param>
-        /// <param name="capacity">Capacity of array</param>
-        /// <returns></returns>
-        private static int[] IntToBinaryArray(int value, int capacity)
-        {
-            int[] result = new int[capacity];
-
-            for (int i = 0; value != 0; value >>= 1, i++)
-            {
-                int bit;
-                if((value & 1) == 1)
-                {
-                    bit = positiveBit;
-                }
-                else
-                {
-                    bit = negativeBit;
-                }
-                result[result.Length - i - 1] = bit;
-            }
-
-            return result;
-        }
-        /// <summary>
-        /// Making answer from sign, order, mantissa
-        /// </summary>
-        /// <param name="sign">Binary sign of value</param>
-        /// <param name="orderBinary">Binary reprezentation of an order</param>
-        /// <param name="mantissaBinary">Binary reprezentation of an mantissa</param>
-        /// <returns></returns>
-        private static string GetBinaryRepresentation(int sign, int[] orderBinary, int[] mantissaBinary)
-        {
-            return string.Concat(sign, string.Concat(orderBinary), string.Concat(mantissaBinary));
+            public long ToLong() => LNumber;
         }
     }
 }
