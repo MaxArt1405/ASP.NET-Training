@@ -11,6 +11,9 @@ namespace Customer.Tests
         [TestCase("Name", ExpectedResult = "Customer record: Jeffrey Richter")]
         [TestCase("Contact", ExpectedResult = "Customer record: +1 (425) 555-0100")]
         [TestCase("Revenue", ExpectedResult = "Customer record: 1000000")]
+        [TestCase("NameRevenue", ExpectedResult = "Customer record: Jeffrey Richter, 1000000")]
+        [TestCase("ContactRevenue", ExpectedResult = "Customer record: +1 (425) 555-0100, 1000000")]
+        [TestCase("NameContact", ExpectedResult = "Customer record: Jeffrey Richter, +1 (425) 555-0100")]
         public string TestMethod1(string format)
         {
             return customer.ToString(format);
