@@ -8,7 +8,7 @@ namespace ArrayExtensions
         /// <summary>
         /// This method takes an array and filter it by criteria
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="int[]"></typeparam>
         /// <param name="source">source array</param>
         /// <param name="predicate">Filter method criteria</param>
         /// <returns></returns>
