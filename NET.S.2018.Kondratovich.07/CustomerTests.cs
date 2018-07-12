@@ -23,9 +23,9 @@ namespace Customer.Tests
         }
 
         [TestCase("Full+", null, ExpectedResult = "Customer record: Name: Jeffrey Richter, Revenue: 1000000, Phone: +1 (425) 555-0100")]
-        [TestCase("Name+", null, ExpectedResult = "Customer record name: Jeffrey Richter")]
-        [TestCase("Contact+", null, ExpectedResult = "Customer record contact phone: +1 (425) 555-0100")]
-        [TestCase("Revenue+", null, ExpectedResult = "Customer record revenue: 1000000")]
+        [TestCase("Name+", null, ExpectedResult = "Customers name: Jeffrey Richter")]
+        [TestCase("Contact+", null, ExpectedResult = "Customers record contact phone: +1 (425) 555-0100")]
+        [TestCase("Revenue+", null, ExpectedResult = "Customers revenue: 1000000")]
          public string Custom_CustomerReprezentations_SuccesfullTest(string format, IFormatProvider formatProvider)
         {
             CustomersFormatter custom = new CustomersFormatter();
