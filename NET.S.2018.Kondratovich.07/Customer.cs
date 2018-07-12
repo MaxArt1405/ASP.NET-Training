@@ -35,7 +35,7 @@ namespace NET.S._2018.Kondratovich._07
         /// <returns>String representation of the customer.</returns>
         public override string ToString()
         {
-            return string.Format("Customer record: {0}, {1}, {2}", Name, ContactPhone, Revenue);
+            return string.Format("Customer record: {0}, {1}, {2}", Name, ContactPhone, Revenue.ToString("N", NumberFormatInfo.InvariantInfo));
         }
         /// <summary>
         /// Converts Customer object into string representation.
@@ -64,11 +64,11 @@ namespace NET.S._2018.Kondratovich._07
                 case "CONTACT":
                     return string.Format(formatProvider, "Customer record: {0}", ContactPhone);
                 case "REVENUE":
-                    return string.Format(formatProvider, "Customer record: {0}", Revenue);
+                    return string.Format(formatProvider, "Customer record: {0}", Revenue.ToString("N", NumberFormatInfo.InvariantInfo));
                 case "NAMEREVENUE":
-                    return string.Format(formatProvider, "Customer record: {0}, {1}", Name, Revenue);
+                    return string.Format(formatProvider, "Customer record: {0}, {1}", Name, Revenue.ToString("N", NumberFormatInfo.InvariantInfo));
                 case "CONTACTREVENUE":
-                    return string.Format(formatProvider, "Customer record: {0}, {1}", ContactPhone, Revenue);
+                    return string.Format(formatProvider, "Customer record: {0}, {1}", ContactPhone, Revenue.ToString("N", NumberFormatInfo.InvariantInfo));
                 case "NAMECONTACT":
                     return string.Format(formatProvider, "Customer record: {0}, {1}", Name, ContactPhone);
                 default:

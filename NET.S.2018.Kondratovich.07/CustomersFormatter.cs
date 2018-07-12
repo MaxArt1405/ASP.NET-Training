@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Globalization;
+using System.Text;
 
 namespace NET.S._2018.Kondratovich._07
 {
     public class CustomersFormatter : ICustomFormatter, IFormatProvider
     {
+        private readonly string[] StringNumbers = "zero one two three four five six seven eight nine minus point".Split();
         private readonly IFormatProvider parentFormatProvider;
         /// <summary>
         /// Constructor without parameters.
@@ -46,13 +48,15 @@ namespace NET.S._2018.Kondratovich._07
             switch (format.ToUpper())
             {
                 case "FULL+":
-                    return $"Customer record: Name: {customer.Name}, Revenue: {customer.Revenue}, Phone: {customer.ContactPhone}";
+                    return $"Customer record: Name: {customer.Name}, Revenue: {customer.Revenue.ToString("N", NumberFormatInfo.InvariantInfo)}, Phone: {customer.ContactPhone}";
+                case "BYWORD+":
+                    return $"Customer record: Revenue - {NumberIntoWords((double)customer.Revenue)}";
                 case "NAME+":
-                    return $"Customers name: {customer.Name}";
+                    return $"Customer record name: {customer.Name}";
                 case "CONTACT+":
-                    return $"Customers contact phone: {customer.ContactPhone}";
+                    return $"Customer record contact phone: {customer.ContactPhone}";
                 case "REVENUE+":
-                    return $"Customers revenue: {customer.Revenue}";
+                    return $"Customer record revenue: {customer.Revenue.ToString("N", NumberFormatInfo.InvariantInfo)}";
                 default:
                     throw new FormatException($"This format {format} is not supported.");
             }
@@ -65,6 +69,19 @@ namespace NET.S._2018.Kondratovich._07
                 return this;
             }
             return null;
+        }
+        private string NumberIntoWords(double number)
+        {
+            StringBuilder result = new StringBuilder();
+            string digitList = number.ToString();
+            foreach (char digit in digitList)
+            {
+                int i = "0123456789+-.".IndexOf(digit);
+                if (i == -1) continue;
+                if (result.Length > 0) result.Append(' ');
+                result.Append(StringNumbers[i]);
+            }
+            return result.ToString();
         }
     }
 }
