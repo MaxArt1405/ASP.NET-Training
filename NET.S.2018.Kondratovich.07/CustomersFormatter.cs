@@ -48,11 +48,11 @@ namespace NET.S._2018.Kondratovich._07
                 case "FULL+":
                     return $"Customer record: Name: {customer.Name}, Revenue: {customer.Revenue}, Phone: {customer.ContactPhone}";
                 case "NAME+":
-                    return $"Customer record name: {customer.Name}";
+                    return $"Customers name: {customer.Name}";
                 case "CONTACT+":
-                    return $"Customer record contact phone: {customer.ContactPhone}";
+                    return $"Customers contact phone: {customer.ContactPhone}";
                 case "REVENUE+":
-                    return $"Customer record revenue: {customer.Revenue}";
+                    return $"Customers revenue: {customer.Revenue}";
                 default:
                     throw new FormatException($"This format {format} is not supported.");
             }
