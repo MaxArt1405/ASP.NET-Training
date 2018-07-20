@@ -16,7 +16,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//874
             Matrix[3] = new int[] { 3, 21, 45, 10 };//79
 
-            BubbleSort.SortRows(Matrix, SortKeys.GetSumOfRowsElements(Matrix), new RightHandedOrder());
+            BubbleSort.SortRows(Matrix, Strategy.GetSumOfRowsElements(Matrix), new RightHandedOrder());
             int[][] expected = new int[4][];
             expected[0] = new int[] { 3, 4, 9, 2, 15 };
             expected[1] = new int[] { 3, 21, 45, 10 };
@@ -38,7 +38,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//874
             Matrix[3] = new int[] { 3, 21, 45, 10 };//79
 
-            BubbleSort.SortRows(Matrix, SortKeys.GetSumOfRowsElements(Matrix), new LeftHandedOrder());
+            BubbleSort.SortRows(Matrix, Strategy.GetSumOfRowsElements(Matrix), new LeftHandedOrder());
             int[][] expected = new int[4][];
             expected[3] = new int[] { 3, 4, 9, 2, 15 };
             expected[2] = new int[] { 3, 21, 45, 10 };
@@ -61,7 +61,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//544
             Matrix[3] = new int[] { 3, 21, 45, 10 };//45
 
-            BubbleSort.SortRows(Matrix, SortKeys.GetMaxRowsElements(Matrix), new RightHandedOrder());
+            BubbleSort.SortRows(Matrix, Strategy.GetMaxRowsElements(Matrix), new RightHandedOrder());
             int[][] expected = new int[4][];
             expected[0] = new int[] { 3, 4, 9, 2, 15 };
             expected[1] = new int[] { 3, 21, 45, 10 };
@@ -83,7 +83,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//544
             Matrix[3] = new int[] { 3, 21, 45, 10 };//45
 
-            BubbleSort.SortRows(Matrix, SortKeys.GetMaxRowsElements(Matrix), new LeftHandedOrder());
+            BubbleSort.SortRows(Matrix, Strategy.GetMaxRowsElements(Matrix), new LeftHandedOrder());
             int[][] expected = new int[4][];
             expected[3] = new int[] { 3, 4, 9, 2, 15 };
             expected[2] = new int[] { 3, 21, 45, 10 };
@@ -106,7 +106,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//13
             Matrix[3] = new int[] { 1, 2, 21, 45, 10 };//1
 
-            BubbleSort.SortRows(Matrix, SortKeys.GetMinRowsElements(Matrix), new RightHandedOrder());
+            BubbleSort.SortRows(Matrix, Strategy.GetMinRowsElements(Matrix), new RightHandedOrder());
             int[][] expected = new int[4][];
             expected[0] = new int[] { 1, 2, 21, 45, 10 };
             expected[1] = new int[] { 2, 5, 8, 7, 12, 74 };
@@ -127,7 +127,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//13
             Matrix[3] = new int[] { 1, 2, 21, 45, 10 };//1
 
-            BubbleSort.SortRows(Matrix, SortKeys.GetMinRowsElements(Matrix), new LeftHandedOrder());
+            BubbleSort.SortRows(Matrix, Strategy.GetMinRowsElements(Matrix), new LeftHandedOrder());
             int[][] expected = new int[4][];
             expected[3] = new int[] { 1, 2, 21, 45, 10 };
             expected[2] = new int[] { 2, 5, 8, 7, 12, 74 };
@@ -163,7 +163,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//874
             Matrix[3] = new int[] { 3, 21, 45, 10 };//79
 
-            BubbleSortDelegate.SortRows(Matrix, SortKeys.GetSumOfRowsElements(Matrix), new Comparison<int>((a, b) => a.CompareTo(b)));
+            BubbleSortDelegate.SortRows(Matrix, Strategy.GetSumOfRowsElements(Matrix), new Comparison<int>((a, b) => a.CompareTo(b)));
             int[][] expected = new int[4][];
             expected[0] = new int[] { 3, 4, 9, 2, 15 };
             expected[1] = new int[] { 3, 21, 45, 10 };
@@ -185,7 +185,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//874
             Matrix[3] = new int[] { 3, 21, 45, 10 };//79
 
-            BubbleSortDelegate.SortRows(Matrix, SortKeys.GetSumOfRowsElements(Matrix), new Comparison<int>((a, b) => b.CompareTo(a)));
+            BubbleSortDelegate.SortRows(Matrix, Strategy.GetSumOfRowsElements(Matrix), new Comparison<int>((a, b) => b.CompareTo(a)));
             int[][] expected = new int[4][];
             expected[3] = new int[] { 3, 4, 9, 2, 15 };
             expected[2] = new int[] { 3, 21, 45, 10 };
@@ -208,7 +208,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//544
             Matrix[3] = new int[] { 3, 21, 45, 10 };//45
 
-            BubbleSortDelegate.SortRows(Matrix, SortKeys.GetMaxRowsElements(Matrix), new Comparison<int>((a, b) => a.CompareTo(b)));
+            BubbleSortDelegate.SortRows(Matrix, Strategy.GetMaxRowsElements(Matrix), new Comparison<int>((a, b) => a.CompareTo(b)));
             int[][] expected = new int[4][];
             expected[0] = new int[] { 3, 4, 9, 2, 15 };
             expected[1] = new int[] { 3, 21, 45, 10 };
@@ -230,7 +230,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//544
             Matrix[3] = new int[] { 3, 21, 45, 10 };//45
 
-            BubbleSortDelegate.SortRows(Matrix, SortKeys.GetMaxRowsElements(Matrix), new Comparison<int>((a, b) => b.CompareTo(a)));
+            BubbleSortDelegate.SortRows(Matrix, Strategy.GetMaxRowsElements(Matrix), new Comparison<int>((a, b) => b.CompareTo(a)));
             int[][] expected = new int[4][];
             expected[3] = new int[] { 3, 4, 9, 2, 15 };
             expected[2] = new int[] { 3, 21, 45, 10 };
@@ -253,7 +253,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//13
             Matrix[3] = new int[] { 1, 2, 21, 45, 10 };//1
 
-            BubbleSortDelegate.SortRows(Matrix, SortKeys.GetMinRowsElements(Matrix), new Comparison<int>((a, b) => a.CompareTo(b)));
+            BubbleSortDelegate.SortRows(Matrix, Strategy.GetMinRowsElements(Matrix), new Comparison<int>((a, b) => a.CompareTo(b)));
             int[][] expected = new int[4][];
             expected[0] = new int[] { 1, 2, 21, 45, 10 };
             expected[1] = new int[] { 2, 5, 8, 7, 12, 74 };
@@ -274,7 +274,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//13
             Matrix[3] = new int[] { 1, 2, 21, 45, 10 };//1
 
-            BubbleSortDelegate.SortRows(Matrix, SortKeys.GetMinRowsElements(Matrix), new Comparison<int>((a, b) => b.CompareTo(a)));
+            BubbleSortDelegate.SortRows(Matrix, Strategy.GetMinRowsElements(Matrix), new Comparison<int>((a, b) => b.CompareTo(a)));
             int[][] expected = new int[4][];
             expected[3] = new int[] { 1, 2, 21, 45, 10 };
             expected[2] = new int[] { 2, 5, 8, 7, 12, 74 };
@@ -295,7 +295,7 @@ namespace JaggedArray.Tests
             Matrix[2] = new int[] { 13, 25, 85, 95, 112, 544 };//13
             Matrix[3] = new int[] { 1, 2, 21, 45, 10 };//1
             int[] keys = { };
-            BubbleSortDelegate.SortRows(Matrix, SortKeys.GetMaxRowsElements(Matrix), new Comparison<int>((a, b) => a.CompareTo(b)));
+            BubbleSortDelegate.SortRows(Matrix, Strategy.GetMaxRowsElements(Matrix), new Comparison<int>((a, b) => a.CompareTo(b)));
         }
     }
 }
