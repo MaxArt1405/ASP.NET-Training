@@ -14,7 +14,7 @@ namespace BinarySearchTest
             Assert.AreEqual(BinarySearch.Search(number, 14), 8);
         }
         [Test]
-        public void BinarySearchInEmptyArray_Succed()
+        public void BinarySearchInEmptyArray_Success()
         {
             int[] number = { };
             Assert.AreEqual(BinarySearch.Search(number, 5), -1);
@@ -29,10 +29,16 @@ namespace BinarySearchTest
         [TestCase("ABCDEFGHIJKLMOPRSTUVWXYZ", 'k', ExpectedResult = 10)]
         [TestCase("ABCDEFGHIJKLMOPRSTUVWXYZ", 'B', ExpectedResult = 1)]
         [TestCase("ABCDEFGHIJKLMOPRSTUVWXYZ", 'w', ExpectedResult = 20)]
-        public int BinarySearch_CustomComparer_Succed(string input, char item)
+        public int BinarySearch_CustomComparer_Succes(string input, char item)
         {
             char[] str = input.ToCharArray();
             return BinarySearch.Search(str, char.ToUpper(item));
+        }
+        [Test]
+        public void BinarySearchInDoubleArray_Success()
+        {
+            double[] number = { 1.001, 1.003, 1.010, 1.008};
+            Assert.AreEqual(BinarySearch.Search(number, 1.010), 2);
         }
     }
 }
