@@ -8,23 +8,44 @@ namespace Fibonacci
 {
     public class FibonacciGenerator
     {
-        public static IEnumerable<int> GenerateFibonacci(int count)
+       /* public static IEnumerable<int> GenerateFibonacci(int count)
         {
             int first = 0;
             int second = 1;
 
-            for(int i = 0; i < count; i++)
+            int NextStep(int firstNumber, int secondNumber)
+            {
+                var nextNumber = first + second;
+                first = second;
+                second = nextNumber;
+                return nextNumber;
+            }
+
+            for (int i = 0; i < count; i++)
             {
                 yield return first;
-                NextStep(ref first, ref second);
+                NextStep(first, second);
             }
-        }
-        private static int NextStep(ref int first,ref int second)
+        }*/
+        public static IEnumerable<int> GenerateFibonacci()
         {
-            var nextNumber = first + second;
-            first = second;
-            second = nextNumber;
-            return nextNumber;
-        }
+            int first = 0;
+            int second = 1;
+
+            int NextNumber()
+            {
+                var nextNumber = first + second;
+                first = second;
+                second = nextNumber;
+                return nextNumber;
+            }
+
+            for (int i = 0; i < int.MaxValue - second; i++)
+            {
+                yield return first;
+                NextNumber();
+            }
+        } 
+         
     }
 }
