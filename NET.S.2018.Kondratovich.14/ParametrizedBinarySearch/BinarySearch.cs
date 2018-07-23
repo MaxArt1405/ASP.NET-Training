@@ -1,29 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BinarySearchParametrized
 {
     public class BinarySearch
     {
-        /// <summary>
-        /// Search element in T[]array by binary search.
-        /// To compare elements use <see cref="Comparer<T>"/>
-        /// </summary>
-        /// <param name="array">Array to search in.</param>
-        /// <param name="element">Element to search.</param>
-        /// <exception cref="ArgumentNullException">
-        /// If <paramref name="array"/> is null.
-        /// If <paramref name="element"/> is null.
-        /// </exception>
-        /// <exception cref="ArgumentException">
-        /// If T-type does not impelemnts <see cref="IComparer{T}"/>.
-        /// </exception>
-        /// <returns>Found index. If element not found then return -1.</returns>
-        public static int Search<T>(T[] array, T element)
+        public static int? Search<T>(T[] array, T element)
         {
             if (array == null)
             {
@@ -40,10 +22,10 @@ namespace BinarySearchParametrized
                 throw new ArithmeticException($"{nameof(element)} must implementation IComparer");
             }
 
-            return InnerBinarySearch(array, element, Comparer<T>.Default, 0, array.Length - 1);
+            return BinarySearchProcess(array, element, Comparer<T>.Default, 0, array.Length - 1);
         }
 
-        private static int InnerBinarySearch<T>(T[] array, T element, Comparer<T> comparer, int start, int end)
+        private static int? BinarySearchProcess<T>(T[] array, T element, Comparer<T> comparer, int start, int end)
         {
             while (start <= end)
             {
@@ -63,7 +45,7 @@ namespace BinarySearchParametrized
                     start = middle + 1;
                 }
             }
-            return -1;
+            return null;
         }
     }
 }
