@@ -16,16 +16,30 @@ namespace BinarySearchParametrized
             {
                 throw new ArgumentNullException(nameof(element));
             }
+            return BinarySearchProcess(array, element, Comparer<T>.Default, 0, array.Length - 1);
+        }
 
-            if (Comparer<T>.Default == null)
+        public static int? Search<T>(T[] array, T element, IComparer<T> comparer)
+        {
+            if (array == null)
+            {
+                throw new ArgumentNullException(nameof(array));
+            }
+
+            if (element == null)
+            {
+                throw new ArgumentNullException(nameof(element));
+            }
+
+            if (comparer == null)
             {
                 throw new ArithmeticException($"{nameof(element)} must implementation IComparer");
             }
 
-            return BinarySearchProcess(array, element, Comparer<T>.Default, 0, array.Length - 1);
+            return BinarySearchProcess(array, element, comparer, 0, array.Length - 1);
         }
 
-        private static int? BinarySearchProcess<T>(T[] array, T element, Comparer<T> comparer, int start, int end)
+        private static int? BinarySearchProcess<T>(T[] array, T element, IComparer<T> comparer, int start, int end)
         {
             while (start <= end)
             {
