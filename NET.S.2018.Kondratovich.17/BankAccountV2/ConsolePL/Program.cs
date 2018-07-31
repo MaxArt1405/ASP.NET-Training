@@ -1,4 +1,4 @@
-﻿using BankAccount2._0.BusinessModel;
+using BankAccount2._0.BusinessModel;
 using BankAccount2._0.Factories;
 using BankAccount2._0.Service;
 using BLL.Interfaces.Accounts.BaseAccount;
@@ -35,8 +35,27 @@ namespace ConsolePL
         {
             var repository = new BankAccountRepository();
             var bankService = new BankAccountService(repository);
-            bankService.Add(CreateAccount());
-            bankService.Add(CreateAccount());
+
+            var account1 = CreateAccount();
+            var account2 = CreateAccount();
+            var account3 = CreateAccount();
+            var account4 = CreateAccount();
+
+            account1.Deposite(1700);
+            account2.Deposite(1700);
+            account3.Deposite(1700);
+            account4.Deposite(1700);
+
+            bankService.Add(account1);
+            bankService.Add(account2);
+            bankService.Add(account3);
+            bankService.Add(account4);
+            Console.WriteLine(bankService);
+
+            account1.Withdraw(150);
+            account2.Status = Status.Close;
+            bankService.Remove(account3);
+            
             Console.WriteLine(bankService);
         }
         private BankAccount CreateAccount()
